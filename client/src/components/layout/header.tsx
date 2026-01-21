@@ -17,7 +17,7 @@ export default function Header() {
     ];
 
     return (
-        <header className="bg-[#f5ebd7] px-6 py-8 md:px-12 lg:px-20">
+        <header className="absolute top-0 left-0 right-0 z-50 bg-transparent px-6 py-8 md:px-12 lg:px-20">
             <nav className="relative flex items-center justify-between">
 
                 <div className="md:hidden flex items-center justify-between w-full">
