@@ -1,5 +1,7 @@
+"use client";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
+import { motion, easeOut } from "framer-motion";
 
 export default function FAQS() {
   const faqData = [
@@ -20,7 +22,7 @@ export default function FAQS() {
       answer: "While vehicles and camps are insured, travellers are still advised to have general travel insurance. This covers medical emergencies, especially for guests with pre-existing conditions, since camp clinics are basic and the nearest hospitals can be 30-40 minutes away."
     },
     {
-      question: "Can dietary needs (vegan, gluten-free, halal) be accommodated",
+      question: "Can dietary needs (vegan, gluten-free, halal) be accommodated?",
       answer: "Yes, but only with advance notice. Standard buffets are halal by default and include vegetarian options, but strict vegan, gluten-free, or allergy-specific meals need to be flagged at the time of booking to be prepared separately."
     },
     {
@@ -29,28 +31,63 @@ export default function FAQS() {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.6, ease: easeOut } 
+    },
+  };
+
   return (
-    <div className="bg-[#f5ebd7] min-h-screen">
+    <div className="bg-[#f5ebd7] min-h-screen overflow-x-hidden">
       <Header />
       
-      <main className="px-6 md:px-12 lg:px-20 py-18 md:py-32">
-        <h1 className="text-5xl md:text-6xl font-bold text-[#2d2d2d] mb-20 tracking-tight">
+      <main className="px-6 md:px-12 lg:px-20 py-24 md:py-40">
+        <motion.h1 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-5xl md:text-7xl font-bold text-[#2d2d2d] mb-20 tracking-tighter"
+        >
           FAQs
-        </h1>
+        </motion.h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16"
+        >
           {faqData.map((faq, index) => (
-            <div key={index} className="flex flex-col gap-4">
-              <h3 className="text-[22px] font-bold leading-[1.2] text-[#2d2d2d] tracking-tight">
+            <motion.div 
+              key={index} 
+              variants={itemVariants}
+              className="flex flex-col gap-4 group"
+            >
+              <h3 className="text-[22px] font-bold leading-[1.2] text-[#2d2d2d] tracking-tight group-hover:text-black transition-colors duration-300">
                 {faq.question}
               </h3>
-              <p className="text-[#3a3a3a] text-[16px] leading-relaxed font-medium">
+              <p className="text-[#3a3a3a] text-[16px] leading-relaxed font-medium opacity-80">
                 {faq.answer}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </main>
+      
       <Footer />
     </div>
   );
