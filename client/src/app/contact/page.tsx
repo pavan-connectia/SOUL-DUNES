@@ -2,7 +2,7 @@ import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 import Image from "next/image";
 
-export default function FAQS() {
+export default function CONTACT() {
   return (
     <div className="bg-[#f5ebd7] min-h-screen">
       <Header />

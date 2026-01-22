@@ -10,7 +10,7 @@ export default function Header() {
     const navLinks = [
         { name: 'Home', href: '/' },
         { name: 'Services', href: '/services' },
-        { name: 'Who We Are', href: '/about' },
+        { name: 'Who We Are', href: '/who-we-are' },
         { name: 'Book Now', href: '/book' },
         { name: 'Get In Touch', href: '/contact' },
         { name: 'FAQs', href: '/faqs' },
