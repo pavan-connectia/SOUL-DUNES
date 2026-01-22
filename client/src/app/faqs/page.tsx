@@ -33,7 +33,7 @@ export default function FAQS() {
     <div className="bg-[#f5ebd7] min-h-screen">
       <Header />
       
-      <main className="px-6 md:px-12 lg:px-20 py-12">
+      <main className="px-6 md:px-12 lg:px-20 py-18 md:py-32">
         <h1 className="text-5xl md:text-6xl font-bold text-[#2d2d2d] mb-20 tracking-tight">
           FAQs
         </h1>
