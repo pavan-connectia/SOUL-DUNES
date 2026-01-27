@@ -43,3 +43,6 @@ next-env.d.ts
 /client/node_modules
 /client/.next
 /client/.env
+
+/backend/node_modules
+/backend/.env

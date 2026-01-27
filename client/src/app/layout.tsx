@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://soul-dunes.vercel.app"), // ✅ REQUIRED
+  metadataBase: new URL("https://soul-dunes.vercel.app"),
 
   title: {
     default: "Sol Dunes | Experiences with a soul of their own",
