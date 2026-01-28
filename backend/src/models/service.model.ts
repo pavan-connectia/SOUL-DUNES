@@ -6,7 +6,7 @@ const serviceSchema = new Schema(
     slug: { type: String, required: true, unique: true },
     type: { type: Schema.Types.ObjectId, ref: "ProductType" },
     identifier: { type: String, required: true, unique: true },
-    
+
     description: [
       {
         type: { type: String, enum: ["paragraph", "list"], default: "paragraph" },
@@ -36,7 +36,7 @@ const serviceSchema = new Schema(
         name: { type: String },
         description: { type: String },
       },
-      transportType: { type: Schema.Types.ObjectId, ref: "TransportType" },
+      // transportType: { type: Schema.Types.ObjectId, ref: "TransportType" },
       availability: {
         timeSlotType: { type: String, enum: ["DAILY_FIXED", "DAILY_FLEXIBLE"], default: "DAILY_FIXED" },
         startTime: { type: String },
@@ -62,33 +62,58 @@ const serviceSchema = new Schema(
 
     basePrices: [
       {
-        // Reference the Tier ID directly for cleaner lookups
-        serviceTier: { type: Schema.Types.ObjectId, ref: "ServiceTier", required: true },
-        rateType: { type: String, enum: ["per person", "per group", "per vehicle"], default: "per person" },
+        serviceTier: {
+          type: Schema.Types.ObjectId,
+          ref: "ServiceTier",
+          required: true
+        },
+
+        rateType: {
+          type: String,
+          enum: ["per person", "per group", "per vehicle", "per hour"],
+          default: "per person"
+        },
+
         adultPrice: { type: Number, required: true },
-        childPrice: { type: Number, default: 0 },
-        infantPrice: { type: Number, default: 0 },
+        childPrice: { type: Number, default: null },
+        infantPrice: { type: Number, default: null },
+
         groupPrice: { type: Number, default: null },
         transferPrice: { type: Number, default: null },
+
         isActive: { type: Boolean, default: true },
-        validFrom: { type: Date, required: true },
-        validTo: { type: Date, required: true }
-      },
+
+        validFrom: { type: Date, default: null },
+        validTo: { type: Date, default: null }
+      }
     ],
 
     assignmentPrices: [
       {
-        serviceTier: { type: Schema.Types.ObjectId, ref: "ServiceTier", required: true },
-        rateType: { type: String, enum: ["per person", "per group", "per vehicle"], default: "per person" },
+        serviceTier: {
+          type: Schema.Types.ObjectId,
+          ref: "ServiceTier",
+          required: true
+        },
+
+        rateType: {
+          type: String,
+          enum: ["per person", "per group", "per vehicle", "per hour"],
+          default: "per person"
+        },
+
         adultPrice: { type: Number, required: true },
-        childPrice: { type: Number, default: 0 },
-        infantPrice: { type: Number, default: 0 },
+        childPrice: { type: Number, default: null },
+        infantPrice: { type: Number, default: null },
+
         groupPrice: { type: Number, default: null },
         transferPrice: { type: Number, default: null },
+
         isActive: { type: Boolean, default: true },
-        validFrom: { type: Date, required: true },
-        validTo: { type: Date, required: true }
-      },
+
+        validFrom: { type: Date, default: null },
+        validTo: { type: Date, default: null }
+      }
     ],
 
     infoIncludes: {

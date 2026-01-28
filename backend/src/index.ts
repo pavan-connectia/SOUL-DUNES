@@ -5,6 +5,7 @@ import path from "path";
 import dotenv from "dotenv"
 
 import productRoute from "./routes/ProductType.route"
+import serviceTier from "./routes/serviceTier.routes"
 
 dotenv.config();
 
@@ -32,7 +33,8 @@ app.get("/", (req: Request, res: Response) => {
   res.send("api is running");
 });
 
-app.use("/product",productRoute)
+app.use("/product",productRoute);
+app.use("/servicetier",serviceTier);
 
 app.use((req: Request, res: Response, _next: NextFunction) => {
   res.status(404).json({
