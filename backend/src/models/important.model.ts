@@ -1,10 +1,11 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
-
 export interface IImportant extends Document {
-    name: string;
-    description: string;
-    type: string | null;
+    name: string; 
+    blocks: Array<{
+        type: string;
+        data: any;
+    }>;
 }
 
 const importantSchema = new Schema<IImportant>({
@@ -12,15 +13,12 @@ const importantSchema = new Schema<IImportant>({
         type: String,
         required: true
     },
-    description: {
-        type: String,
-        required: true
-    },
-    type: {
-        type: String,
-        required: true
-    }
-
+    blocks: [
+        {
+            type: { type: String, required: true },
+            data: { type: Schema.Types.Mixed, required: true } 
+        }
+    ]
 }, { timestamps: true });
 
 export const Important = mongoose.model<IImportant>('Important', importantSchema);
