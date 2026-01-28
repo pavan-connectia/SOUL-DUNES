@@ -118,7 +118,12 @@ const serviceSchema = new Schema(
 
     infoIncludes: {
       includeRef: { type: Schema.Types.ObjectId, ref: "Includes", required: true },
-      except: { type: String },
+      blocks: [
+        {
+            type: { type: String,},
+            data: { type: Schema.Types.Mixed} 
+        }
+    ]
     },
 
     infoComparative: { type: Schema.Types.ObjectId, ref: "Comparative" },

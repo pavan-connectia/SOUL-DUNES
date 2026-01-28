@@ -1,23 +1,15 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
-
 export interface IIncludes extends Document {
-    text: string; 
-    image: string | null;
-    
+    name: string;
+    fileUrl: string;
+    previewImageUrl: string;
 }
 
 const includesSchema = new Schema<IIncludes>({
-    
-    text: { 
-        type: String, 
-        required: true 
-    },
-    image: { 
-        type: String, 
-        required: true 
-    },
-    
+    name: { type: String, required: true },
+    fileUrl: { type: String, required: true },
+    previewImageUrl: { type: String, required: true }
 }, { timestamps: true });
 
 export const Includes = mongoose.model<IIncludes>('Includes', includesSchema);
