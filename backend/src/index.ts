@@ -17,6 +17,19 @@ import database from "./config/database";
 const app: Application = express();
 
 app.use(express.json());
+
+app.use(express.json());
+
+app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
+  if (err instanceof SyntaxError && "body" in err) {
+    return res.status(400).json({
+      success: false,
+      message: "Invalid JSON format in request body",
+    });
+  }
+  next();
+});
+
 app.use(cookieParser());
 
 app.use(
