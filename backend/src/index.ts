@@ -7,6 +7,7 @@ import dotenv from "dotenv"
 import productRoute from "./routes/ProductType.route"
 import serviceTierRoute from "./routes/serviceTier.routes"
 import includesRoute from "./routes/includes.routes"
+import comparativeRoute from "./routes/comparative.routes"
 
 dotenv.config();
 
@@ -37,6 +38,7 @@ app.get("/", (req: Request, res: Response) => {
 app.use("/product",productRoute);
 app.use("/servicetier",serviceTierRoute);
 app.use("/includes",includesRoute);
+app.use("/comparative",comparativeRoute);
 
 app.use((req: Request, res: Response, _next: NextFunction) => {
   res.status(404).json({

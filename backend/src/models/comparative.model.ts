@@ -1,23 +1,16 @@
 import mongoose, { Schema, Document } from "mongoose";
 
 export interface IComparative extends Document {
-  text: string;
-  description: string | null;
+  name: string;
   content: string[][];
 }
 
 const ComparativeSchema = new Schema<IComparative>(
   {
-    text: {
+    name: {
       type: String,
       required: true,
     },
-
-    description: {
-      type: String,
-      default: null,
-    },
-
     content: {
       type: [[String]],
       required: true,
