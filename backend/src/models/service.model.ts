@@ -37,11 +37,10 @@ const serviceSchema = new Schema(
         description: { type: String },
       },
       transportType: { type: Schema.Types.ObjectId, ref: "TransportType" },
-      keywords: [{ type: Schema.Types.ObjectId, ref: "Keyword" }],
       availability: {
         timeSlotType: { type: String, enum: ["DAILY_FIXED", "DAILY_FLEXIBLE"], default: "DAILY_FIXED" },
-        startTime: { type: String }, // HH:mm:ss
-        displayStartTime: { type: String }, // 14:00-14:30
+        startTime: { type: String },
+        displayStartTime: { type: String },
         endTime: { type: String },
         blockedDates: [{ type: Date }],
         blockedWeekdays: [{ type: String, enum: ["SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"] }],

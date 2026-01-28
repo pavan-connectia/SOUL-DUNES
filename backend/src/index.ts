@@ -4,6 +4,8 @@ import cookieParser from "cookie-parser";
 import path from "path";
 import dotenv from "dotenv"
 
+import productRoute from "./routes/ProductType.route"
+
 dotenv.config();
 
 import database from "./config/database";
@@ -30,7 +32,8 @@ app.get("/", (req: Request, res: Response) => {
   res.send("api is running");
 });
 
-// 404 handler (always LAST)
+app.use("/product",productRoute)
+
 app.use((req: Request, res: Response, _next: NextFunction) => {
   res.status(404).json({
     success: false,
