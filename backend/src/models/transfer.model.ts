@@ -1,31 +1,29 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
-
-export interface IBlock {
-    type: string; 
-    data: any; 
-}
-
-
-export interface IRichText {
-    blocks: IBlock[];
-}
-
 export interface ITransfer extends Document {
-    name: string;     
-    description: string;
-    richText: IRichText;
+    name: string;
     image: string;
-    
+    blocks: Array<{
+        type: string;
+        data: any;
+    }>;
 }
 
 const transferSchema = new Schema<ITransfer>({
-    name: { type: String, required: true },
-    description: { type: String },
-    image:{ type: String, required: true },
-    richText: {
-        blocks: [Schema.Types.Mixed] 
+    name: {
+        type: String,
+        required: true
     },
+    image: {
+        type: String,
+        required: true
+    },
+    blocks: [
+        {
+            type: { type: String, required: true },
+            data: { type: Schema.Types.Mixed, required: true }
+        }
+    ]
 }, { timestamps: true });
 
 export const Transfer = mongoose.model<ITransfer>('Transfer', transferSchema);

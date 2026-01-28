@@ -9,6 +9,7 @@ import serviceTierRoute from "./routes/serviceTier.routes"
 import includesRoute from "./routes/includes.routes"
 import comparativeRoute from "./routes/comparative.routes"
 import importantRoute from "./routes/important.routes"
+import transferRoute from "./routes/transfer.routes"
 
 dotenv.config();
 
@@ -54,6 +55,7 @@ app.use("/servicetier",serviceTierRoute);
 app.use("/includes",includesRoute);
 app.use("/comparative",comparativeRoute);
 app.use("/important",importantRoute);
+app.use("/transfer",transferRoute);
 
 app.use((req: Request, res: Response, _next: NextFunction) => {
   res.status(404).json({
