@@ -1,0 +1,92 @@
+{
+    "cart": {
+        "id": "4c8d1364-ef53-4e19-9c6a-aecc1e02ba07",
+        "user_id": null,
+        "items": [
+            {
+                "cart_item_id": "9accd814-0e6c-496b-ad35-488a9446cb30",
+                "product_id": "49806986-9fac-4c43-a2aa-bd43de2cdd72",
+                "product_slug": "noble-dinner-show",
+                "product_name": "Noble Dinner Show",
+                "product_image_url": "https://noblelifeauthprodsa.blob.core.windows.net/products/25702f84-99f5-4c15-bf14-879d2bb5349c_Noble_Desert_Show_1.jpg",
+                "cancellation_policy_hours": 24,
+                "categories": {
+                    "ADULT": {
+                        "multiplier": 1,
+                        "quantity": 2,
+                        "product_crm_id": 1412,
+                        "price_changed": false,
+                        "unit_display_price": {
+                            "currency": "AED",
+                            "amount_minor": 51000,
+                            "amount_major": "510.00"
+                        },
+                        "total_price": {
+                            "currency": "AED",
+                            "amount_minor": 102000,
+                            "amount_major": "1020.00"
+                        },
+                        "total_display_price": {
+                            "currency": "AED",
+                            "amount_minor": 102000,
+                            "amount_major": "1020.00"
+                        }
+                    }
+                },
+                "addons": [],
+                "client_type": "NONE",
+                "timeslot_id": null,
+                "tariff_id": "3",
+                "tariff_name": "Premium",
+                "product_location": {
+                    "address": "Noble Camp",
+                    "description": null,
+                    "geo_url": "https://www.google.com/maps/search/?api=1&query=25.1567958,55.6181797",
+                    "latitude": "25.1567958",
+                    "longitude": "55.6181797"
+                },
+                "event_date": "2026-01-29",
+                "start_time": "16:00:00",
+                "end_time": "20:45:00",
+                "display_start_time": "16:00-16:30",
+                "disabled": false
+            }
+        ],
+        "discount": null,
+        "status": "ACTIVE",
+        "display_currency": {
+            "code": "AED",
+            "decimal_places": 2,
+            "symbol": "AED"
+        },
+        "total_price": {
+            "currency": "AED",
+            "amount_minor": 102000,
+            "amount_major": "1020.00"
+        },
+        "total_display_price": {
+            "currency": "AED",
+            "amount_minor": 102000,
+            "amount_major": "1020.00"
+        },
+        "discount_price": {
+            "currency": "AED",
+            "amount_minor": 0,
+            "amount_major": "0.00"
+        },
+        "total_price_with_discount": {
+            "currency": "AED",
+            "amount_minor": 102000,
+            "amount_major": "1020.00"
+        },
+        "empty": false,
+        "active": true,
+        "currency": {
+            "code": "AED",
+            "decimal_places": 2,
+            "symbol": "AED"
+        }
+    },
+    "valid": true,
+    "validation_report": "Cart is valid."
+}

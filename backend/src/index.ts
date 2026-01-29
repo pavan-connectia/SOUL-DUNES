@@ -10,6 +10,8 @@ import includesRoute from "./routes/includes.routes"
 import comparativeRoute from "./routes/comparative.routes"
 import importantRoute from "./routes/important.routes"
 import transferRoute from "./routes/transfer.routes"
+import serviceRoute from "./routes/service.routes";
+import cartRoute from "./routes/cart.routes"
 
 dotenv.config();
 
@@ -56,6 +58,8 @@ app.use("/includes",includesRoute);
 app.use("/comparative",comparativeRoute);
 app.use("/important",importantRoute);
 app.use("/transfer",transferRoute);
+app.use("/service", serviceRoute);
+app.use("/cart",cartRoute);
 
 app.use((req: Request, res: Response, _next: NextFunction) => {
   res.status(404).json({

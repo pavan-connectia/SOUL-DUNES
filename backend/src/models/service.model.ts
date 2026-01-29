@@ -10,7 +10,7 @@ const serviceSchema = new Schema(
     description: [
       {
         type: { type: String, enum: ["paragraph", "list"], default: "paragraph" },
-        content: { type: String, required: true },
+        content: { type: Schema.Types.Mixed, required: true },
       },
     ],
 
@@ -117,20 +117,36 @@ const serviceSchema = new Schema(
     ],
 
     infoIncludes: {
-      includeRef: { type: Schema.Types.ObjectId, ref: "Includes", required: true },
+      includeRef: [
+        { type: Schema.Types.ObjectId, ref: "Includes", required: true }
+      ],
       blocks: [
         {
-            type: { type: String,},
-            data: { type: Schema.Types.Mixed} 
+          type: { type: String, },
+          data: { type: Schema.Types.Mixed }
         }
-    ]
+      ]
     },
 
     infoComparative: { type: Schema.Types.ObjectId, ref: "Comparative" },
-    infoImportant: { type: Schema.Types.ObjectId, ref: "Important" },
-    infoTransfers: { type: Schema.Types.ObjectId, ref: "Transfer" },
-    infoFAQ: { type: Schema.Types.ObjectId, ref: "FAQ" },
-    tourInfoBlocks: { type: Schema.Types.ObjectId, ref: "InfoBlocks" }
+    infoImportant: [
+      { type: Schema.Types.ObjectId, ref: "Important" }
+    ],
+    infoTransfers: [
+  { type: Schema.Types.ObjectId, ref: "Transfer" }
+],
+
+    infoFAQ: {
+      blocks: [
+        {
+          data: {
+            type: Schema.Types.Mixed,
+            required: true,
+          },
+        },
+      ],
+    },
+    // tourInfoBlocks: { type: Schema.Types.ObjectId, ref: "InfoBlocks" }
   },
   { timestamps: true }
 );

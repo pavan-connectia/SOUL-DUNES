@@ -3,6 +3,7 @@ import mongoose, { Schema, Document } from 'mongoose';
 export interface ITransfer extends Document {
     name: string;
     image: string;
+    price: number;
     blocks: Array<{
         type: string;
         data: any;
@@ -16,6 +17,10 @@ const transferSchema = new Schema<ITransfer>({
     },
     image: {
         type: String,
+        required: true
+    },
+    price: {
+        type: Number,
         required: true
     },
     blocks: [
