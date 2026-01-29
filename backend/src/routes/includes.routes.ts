@@ -6,13 +6,14 @@ import {
   updateIncludes,
   deleteIncludes,
 } from "../controllers/includes.controller";
+import { protect } from "../middleware/authMiddleware";
 
 const router = Router();
 
-router.post("/", createIncludes);
+router.post("/",protect, createIncludes);
 router.get("/", getAllIncludes);
 router.get("/:id", getIncludesById);
-router.put("/:id", updateIncludes);
-router.delete("/:id", deleteIncludes);
+router.put("/:id",protect, updateIncludes);
+router.delete("/:id",protect, deleteIncludes);
 
 export default router;

@@ -6,7 +6,8 @@ export interface IAdmin extends Document {
   email: string;
   password: string;
   role: "admin" | "superadmin";
-  otp: number | null; 
+  otp: number | null;
+  otpExpiry: Date | null 
 
 }
 
@@ -35,6 +36,10 @@ const adminSchema = new Schema<IAdmin>(
     },
     otp:{
         type:Number,
+        default: null
+    },
+    otpExpiry:{
+        type: Date,
         default: null
     }
   },

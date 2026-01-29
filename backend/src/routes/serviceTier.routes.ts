@@ -6,13 +6,14 @@ import {
   updateServiceTier,
   deleteServiceTier,
 } from "../controllers/serviceTier.controller";
+import { protect } from "../middleware/authMiddleware";
 
 const router = express.Router();
 
-router.post("/", createServiceTier);
+router.post("/",protect, createServiceTier);
 router.get("/", getAllServiceTiers);
 router.get("/:id", getServiceTierById);
-router.put("/:id", updateServiceTier);
-router.delete("/:id", deleteServiceTier);
+router.put("/:id",protect, updateServiceTier);
+router.delete("/:id",protect, deleteServiceTier);
 
 export default router;

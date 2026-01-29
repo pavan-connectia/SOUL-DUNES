@@ -6,13 +6,14 @@ import {
   updateImportant,
   deleteImportant,
 } from "../controllers/important.controller";
+import { protect } from "../middleware/authMiddleware";
 
 const router = express.Router();
 
-router.post("/", createImportant);
+router.post("/",protect, createImportant);
 router.get("/", getAllImportant);
 router.get("/:id", getImportantById);
-router.put("/:id", updateImportant);
-router.delete("/:id", deleteImportant);
+router.put("/:id",protect, updateImportant);
+router.delete("/:id",protect, deleteImportant);
 
 export default router;

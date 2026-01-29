@@ -1,13 +1,15 @@
 import express from "express";
-import { createAdmin, forgotPassword, getAdminById, getAllAdmins, updateAdmin, verifyOtpAndResetPassword } from "../controllers/admin.controller";
+import { forgotPassword, getAdminById, getAllAdmins, loginAdmin, signupAdmin, verifyOtpAndResetPassword } from "../controllers/admin.controller";
+import { protect } from "../middleware/authMiddleware";
 const router = express.Router();
 
-router.post("/",createAdmin);
-router.get("/",getAllAdmins);
-router.get("/:id",getAdminById);
-router.put("/:id",updateAdmin)
+router.post("/signup", signupAdmin);
+router.get("/login", loginAdmin);
+router.get("/all",protect,getAllAdmins);
+
 router.post("/forgot-password", forgotPassword);
 router.post("/verify-otp", verifyOtpAndResetPassword);
 
+router.get("/:id",protect, getAdminById);
 
 export default router;
