@@ -13,6 +13,7 @@ import transferRoute from "./routes/transfer.routes"
 import serviceRoute from "./routes/service.routes";
 import cartRoute from "./routes/cart.routes"
 import orderRoute from "./routes/order.routes"
+import adminRoute from "./routes/admin.routes"
 
 dotenv.config();
 
@@ -62,6 +63,7 @@ app.use("/transfer",transferRoute);
 app.use("/service", serviceRoute);
 app.use("/cart",cartRoute);
 app.use("/order",orderRoute);
+app.use("/admin",adminRoute);
 
 app.use((req: Request, res: Response, _next: NextFunction) => {
   res.status(404).json({
