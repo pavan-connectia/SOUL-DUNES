@@ -12,6 +12,7 @@ import importantRoute from "./routes/important.routes"
 import transferRoute from "./routes/transfer.routes"
 import serviceRoute from "./routes/service.routes";
 import cartRoute from "./routes/cart.routes"
+import orderRoute from "./routes/order.routes"
 
 dotenv.config();
 
@@ -60,6 +61,7 @@ app.use("/important",importantRoute);
 app.use("/transfer",transferRoute);
 app.use("/service", serviceRoute);
 app.use("/cart",cartRoute);
+app.use("/order",orderRoute);
 
 app.use((req: Request, res: Response, _next: NextFunction) => {
   res.status(404).json({
