@@ -11,7 +11,7 @@ export const postLogin = async (formData: Login) => {
 }
 
 export const getLogout = async () => {
-    const res = await axiosInstance.post("/admin/logout");
+    const res = await axiosInstance.get("/admin/logout");
 
     return res.data;
 
