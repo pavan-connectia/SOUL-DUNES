@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import QueryProvider from "@/providers/QueryProvider";
 import { Toaster } from "sonner";
+import { DeleteDialog } from "@/components/shared/DeleteDialog";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default function RootLayout({
       >
         <QueryProvider>
           {children}
+          <DeleteDialog /> 
           <Toaster richColors position="top-center" />
         </QueryProvider>
       </body>
