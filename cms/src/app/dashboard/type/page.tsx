@@ -12,7 +12,7 @@ import {
   useProductGroups, useCreateProductGroup, useUpdateProductGroup, useDeleteProductGroup
 } from "@/hooks/useType";
 
-import { typeColumns, groupColumns } from "@/components/Type/TypeColumns";
+import { typeColumns, groupColumns } from "@/components/Service/TypeColumns";
 import ProductTypeForm from "@/components/shared/TypeForm";
 import ProductGroupForm from "@/components/shared/GroupForm";
 

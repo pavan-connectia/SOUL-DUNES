@@ -13,3 +13,9 @@ export type ProductGroup = {
     name: string;
     description: string;
 }
+
+export type Tier = {
+    name: string;
+    description: string;
+    isActive: boolean;
+}
